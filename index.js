@@ -9,7 +9,7 @@ async function movie(url){
         par.innerText = '';
         if (data.Search) {
             data.Search.forEach(movie => {
-                // par.innerText += movie.Title + '\n';
+                
                 const movieDiv = document.createElement('div');
                 movieDiv.classList.add('movie');
                 movieDiv.innerHTML = `
@@ -30,12 +30,13 @@ async function movie(url){
 }
 
 function act(value){
-    const mov = `http://www.omdbapi.com/?apikey=${apiKey}&s=${value}`;
+    const mov = `https://www.omdbapi.com/?apikey=${apiKey}&s=${value}`;
     movie(mov);
 }
 
 const input = document.querySelector('.input');
-input.addEventListener('input', function(){
+const searcBtn = document.querySelector(".srch")
+searcBtn.addEventListener('click', function(){
     const deyer = input.value.trim(); 
     if (deyer !== "") {
         act(deyer);
